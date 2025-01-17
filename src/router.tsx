@@ -5,12 +5,24 @@ import NotFoundError from "./pages/error/NotFoundError";
 import Error from "./pages/error/Error";
 import GlobalFallback from "./pages/fallback/GlobalFallback";
 import Layout from "./components/Layout";
+<<<<<<< HEAD
+=======
+import LoginLayout from "./components/LoginLayout";
+import Email from "./pages/login/Email";
+import Nickname from "./pages/login/Nickname";
+>>>>>>> master
 
 export const ROUTE_PATH = {
   INDEX: "/",
   HOME: "/",
   LOCATION: "/location",
   MYPAGE: "/mypage",
+<<<<<<< HEAD
+=======
+  LOGIN: "/login",
+  EMAIL: "/login/email",
+  NICKNAME: "/login/nickname",
+>>>>>>> master
 } as const;
 
 const HomePage = lazy(() => import("@/pages/Home"));
@@ -37,7 +49,11 @@ const routes: RouteObject[] = [
         ),
       },
       {
+<<<<<<< HEAD
         path: ROUTE_PATH.HOME,
+=======
+        path: ROUTE_PATH.LOCATION,
+>>>>>>> master
         element: (
           <Suspense fallback={<GlobalFallback />}>
             <LocationPage />
@@ -45,7 +61,11 @@ const routes: RouteObject[] = [
         ),
       },
       {
+<<<<<<< HEAD
         path: ROUTE_PATH.HOME,
+=======
+        path: ROUTE_PATH.MYPAGE,
+>>>>>>> master
         element: (
           <Suspense fallback={<GlobalFallback />}>
             <MyPage />
@@ -56,6 +76,30 @@ const routes: RouteObject[] = [
   },
 
   {
+<<<<<<< HEAD
+=======
+    path: ROUTE_PATH.LOGIN,
+    element: (
+      <ErrorBoundary FallbackComponent={Error}>
+        <Suspense fallback={<GlobalFallback />}>
+          <LoginLayout />
+        </Suspense>
+      </ErrorBoundary>
+    ),
+    children: [
+      {
+        path: ROUTE_PATH.EMAIL,
+        element: <Email />,
+      },
+      {
+        path: ROUTE_PATH.NICKNAME,
+        element: <Nickname />,
+      },
+    ],
+  },
+
+  {
+>>>>>>> master
     path: "*",
     element: (
       <Suspense fallback={<GlobalFallback />}>

@@ -1,7 +1,12 @@
 import { Outlet } from "react-router-dom";
 import Home from "@/assets/svg/home.svg?react";
+<<<<<<< HEAD
 import Sns from "@/assets/svg/sns.svg?react";
 import Who from "@/assets/svg/who.svg?react";
+=======
+import Sns from "@/assets/svg/location.svg?react";
+import Who from "@/assets/svg/mypage.svg?react";
+>>>>>>> master
 import { ROUTE_PATH } from "@/router";
 // import { Toaster } from "sonner";
 import Navbar from "./Navbar";
