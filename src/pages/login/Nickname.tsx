@@ -1,10 +1,10 @@
+// Nickname.tsx
 import { LoginContextType } from "@/components/LoginLayout";
 import { Input } from "@/components/ui/input";
-import React from "react";
 import { useOutletContext } from "react-router-dom";
 
 const Nickname: React.FC = () => {
-  const { formData, handleFormDataChange, isNicknameValid } =
+  const { formData, handleFormDataChange, isNicknameValid, isLoading } =
     useOutletContext<LoginContextType>();
 
   return (
@@ -20,6 +20,7 @@ const Nickname: React.FC = () => {
           }`}
           value={formData.nickname}
           onChange={(e) => handleFormDataChange("nickname", e.target.value)}
+          disabled={isLoading}
         />
         {!isNicknameValid && formData.nickname !== "" && (
           <p className="text-sm text-red-500">닉네임을 입력해주세요</p>

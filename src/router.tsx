@@ -5,29 +5,25 @@ import NotFoundError from "./pages/error/NotFoundError";
 import Error from "./pages/error/Error";
 import GlobalFallback from "./pages/fallback/GlobalFallback";
 import Layout from "./components/Layout";
-<<<<<<< HEAD
-=======
 import LoginLayout from "./components/LoginLayout";
 import Email from "./pages/login/Email";
 import Nickname from "./pages/login/Nickname";
->>>>>>> master
 
 export const ROUTE_PATH = {
   INDEX: "/",
   HOME: "/",
   LOCATION: "/location",
   MYPAGE: "/mypage",
-<<<<<<< HEAD
-=======
   LOGIN: "/login",
   EMAIL: "/login/email",
   NICKNAME: "/login/nickname",
->>>>>>> master
+  DIARY: "/diary/:id", // 추가된 부분
 } as const;
 
 const HomePage = lazy(() => import("@/pages/Home"));
 const LocationPage = lazy(() => import("@/pages/Location"));
 const MyPage = lazy(() => import("@/pages/Mypage"));
+const DiaryPage = lazy(() => import("@/pages/Diary"));
 
 const routes: RouteObject[] = [
   {
@@ -49,11 +45,7 @@ const routes: RouteObject[] = [
         ),
       },
       {
-<<<<<<< HEAD
-        path: ROUTE_PATH.HOME,
-=======
         path: ROUTE_PATH.LOCATION,
->>>>>>> master
         element: (
           <Suspense fallback={<GlobalFallback />}>
             <LocationPage />
@@ -61,14 +53,18 @@ const routes: RouteObject[] = [
         ),
       },
       {
-<<<<<<< HEAD
-        path: ROUTE_PATH.HOME,
-=======
         path: ROUTE_PATH.MYPAGE,
->>>>>>> master
         element: (
           <Suspense fallback={<GlobalFallback />}>
             <MyPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/diary/:postId",
+        element: (
+          <Suspense fallback={<GlobalFallback />}>
+            <DiaryPage />
           </Suspense>
         ),
       },
@@ -76,8 +72,6 @@ const routes: RouteObject[] = [
   },
 
   {
-<<<<<<< HEAD
-=======
     path: ROUTE_PATH.LOGIN,
     element: (
       <ErrorBoundary FallbackComponent={Error}>
@@ -99,7 +93,6 @@ const routes: RouteObject[] = [
   },
 
   {
->>>>>>> master
     path: "*",
     element: (
       <Suspense fallback={<GlobalFallback />}>

@@ -1,4 +1,3 @@
-import React from "react";
 import NotFoundAnimation from "@/components/NotFoundAnimation";
 import Button from "@/components/Button";
 

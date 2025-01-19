@@ -1,10 +1,10 @@
+// Email.tsx
 import { LoginContextType } from "@/components/LoginLayout";
 import { Input } from "@/components/ui/input";
-import React from "react";
 import { useOutletContext } from "react-router-dom";
 
 const Email: React.FC = () => {
-  const { formData, handleFormDataChange, isEmailValid } =
+  const { formData, handleFormDataChange, isEmailValid, isLoading } =
     useOutletContext<LoginContextType>();
 
   return (
@@ -21,6 +21,7 @@ const Email: React.FC = () => {
           }`}
           value={formData.email}
           onChange={(e) => handleFormDataChange("email", e.target.value)}
+          disabled={isLoading}
         />
         {!isEmailValid && formData.email !== "" && (
           <p className="text-sm text-red-500">올바른 이메일 형식이 아닙니다</p>
