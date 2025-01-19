@@ -19,8 +19,8 @@ const Navbar = ({ NavList }: NavBarProps) => {
   const currentPath = location.pathname;
 
   return (
-    <nav className="h-[5.25rem] flex-shrink-0 border-t-[1px] border-gray-100 bg-background dark:border-gray-800">
-      <ul className="flex flex-row justify-between gap-600 px-1000 pt-500">
+    <nav className="h-[5.25rem] flex-shrink-0 border-t-[1px] border-gray-100 bg-background dark:border-gray-800 rounded-t-100">
+      <ul className="flex flex-row justify-between gap-600 px-1000 pt-500 items-center h-4/5">
         {NavList.map((element) => (
           <li
             key={element.label}
